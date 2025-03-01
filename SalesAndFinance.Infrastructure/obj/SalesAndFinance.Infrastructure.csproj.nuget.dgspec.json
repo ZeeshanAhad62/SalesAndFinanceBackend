@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj": {}
+    "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj": {}
   },
   "projects": {
-    "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
+    "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj",
+        "projectUniqueName": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj",
         "projectName": "SalesAndFinance.Domain",
-        "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj",
+        "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj",
         "packagesPath": "C:\\Users\\H Y TECH\\.nuget\\packages\\",
-        "outputPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\obj\\",
+        "outputPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\H Y TECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -65,14 +71,14 @@
         }
       }
     },
-    "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj": {
+    "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj",
+        "projectUniqueName": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj",
         "projectName": "SalesAndFinance.Infrastructure",
-        "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj",
+        "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\H Y TECH\\.nuget\\packages\\",
-        "outputPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\obj\\",
+        "outputPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\H Y TECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,8 +96,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
-                "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj"
+              "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
+                "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj"
               }
             }
           }
@@ -115,11 +121,19 @@
               "target": "Package",
               "version": "[9.0.2, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.2, )"
             }

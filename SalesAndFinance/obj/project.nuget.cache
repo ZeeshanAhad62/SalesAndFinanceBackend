@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z4SwMDRenmY=",
+  "dgSpecHash": "p43gAJM+NGY=",
   "success": true,
-  "projectFilePath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance\\SalesAndFinance.csproj",
+  "projectFilePath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance\\SalesAndFinance.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\H Y TECH\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\H Y TECH\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

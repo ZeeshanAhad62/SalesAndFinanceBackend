@@ -1,0 +1,13 @@
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\bin\Debug\net8.0\SalesAndFinance.Domain.deps.json
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\bin\Debug\net8.0\SalesAndFinance.Domain.dll
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\bin\Debug\net8.0\SalesAndFinance.Domain.pdb
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\SalesAndFinance.Domain.csproj.AssemblyReference.cache
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\SalesAndFinance.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\SalesAndFinance.Domain.AssemblyInfoInputs.cache
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\SalesAndFinance.Domain.AssemblyInfo.cs
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\SalesAndFinance.Domain.csproj.CoreCompileInputs.cache
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\SalesAndFinance.Domain.sourcelink.json
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\SalesAndFinance.Domain.dll
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\refint\SalesAndFinance.Domain.dll
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\SalesAndFinance.Domain.pdb
+E:\myProject\ERP\SalesAndFinanceBackend\SalesAndFinance.Domain\obj\Debug\net8.0\ref\SalesAndFinance.Domain.dll

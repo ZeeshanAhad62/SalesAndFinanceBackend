@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance\\SalesAndFinance.csproj": {}
+    "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance\\SalesAndFinance.csproj": {}
   },
   "projects": {
-    "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj": {
+    "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj",
+        "projectUniqueName": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj",
         "projectName": "SalesAndFinance.Application",
-        "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj",
+        "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj",
         "packagesPath": "C:\\Users\\H Y TECH\\.nuget\\packages\\",
-        "outputPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Application\\obj\\",
+        "outputPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\H Y TECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
-                "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj"
+              "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
+                "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
+    "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj",
+        "projectUniqueName": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj",
         "projectName": "SalesAndFinance.Domain",
-        "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj",
+        "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj",
         "packagesPath": "C:\\Users\\H Y TECH\\.nuget\\packages\\",
-        "outputPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\obj\\",
+        "outputPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\H Y TECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -110,6 +110,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -130,14 +136,14 @@
         }
       }
     },
-    "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj": {
+    "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj",
+        "projectUniqueName": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj",
         "projectName": "SalesAndFinance.Infrastructure",
-        "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj",
+        "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\H Y TECH\\.nuget\\packages\\",
-        "outputPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\obj\\",
+        "outputPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\H Y TECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -155,8 +161,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
-                "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj"
+              "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj": {
+                "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Domain\\SalesAndFinance.Domain.csproj"
               }
             }
           }
@@ -177,6 +183,12 @@
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.2, )"
             },
@@ -211,14 +223,14 @@
         }
       }
     },
-    "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance\\SalesAndFinance.csproj": {
+    "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance\\SalesAndFinance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance\\SalesAndFinance.csproj",
+        "projectUniqueName": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance\\SalesAndFinance.csproj",
         "projectName": "SalesAndFinance",
-        "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance\\SalesAndFinance.csproj",
+        "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance\\SalesAndFinance.csproj",
         "packagesPath": "C:\\Users\\H Y TECH\\.nuget\\packages\\",
-        "outputPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance\\obj\\",
+        "outputPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\H Y TECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -236,11 +248,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj": {
-                "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj"
+              "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj": {
+                "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Application\\SalesAndFinance.Application.csproj"
               },
-              "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj": {
-                "projectPath": "E:\\myProject\\ERP\\backend\\SalesAndFinance\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj"
+              "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj": {
+                "projectPath": "E:\\myProject\\ERP\\SalesAndFinanceBackend\\SalesAndFinance.Infrastructure\\SalesAndFinance.Infrastructure.csproj"
               }
             }
           }

@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using SalesAndFinance.Infrastructure.Data;
+
 namespace SalesAndFinance
 {
     public class Program
@@ -8,6 +11,8 @@ namespace SalesAndFinance
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<SalesAndFinanceDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
