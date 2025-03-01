@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using SalesAndFinance.Domain;
 using SalesAndFinance.Infrastructure;
 
 namespace SalesAndFinance.Infrastructure.Data;

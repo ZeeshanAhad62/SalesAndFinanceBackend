@@ -1,5 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
+using SalesAndFinance.Application;
+using SalesAndFinance.Infrastructure;
 using SalesAndFinance.Infrastructure.Data;
 
 namespace SalesAndFinance
@@ -14,10 +16,26 @@ namespace SalesAndFinance
             builder.Services.AddDbContext<SalesAndFinanceDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddInfrastructureServices();
+            builder.Services.AddApplicationServices();
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AllowAllOrigins",
+                                  policy =>
+                                  {
+                                      policy
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod()
+                                      .AllowAnyOrigin();
+                                  });
+            });
 
             var app = builder.Build();
 
@@ -29,7 +47,7 @@ namespace SalesAndFinance
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors("AllowAllOrigins");
             app.UseAuthorization();
 
 
