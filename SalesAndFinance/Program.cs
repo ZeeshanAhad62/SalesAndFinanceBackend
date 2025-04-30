@@ -12,9 +12,17 @@ namespace SalesAndFinance
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Enable logging
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
+
+            var sqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+            Console.WriteLine($"Connection String: {sqlConnection}");
+
             builder.Services.AddDbContext<SalesAndFinanceDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(sqlConnection));
+            //builder.Services.AddDbContext<SalesAndFinanceDbContext>(sqlConnection , options => options.UseSqlConnection(sqlConnection));
+            // Add services to the container.
 
             builder.Services.AddInfrastructureServices();
             builder.Services.AddApplicationServices();
@@ -35,6 +43,11 @@ namespace SalesAndFinance
                                       .AllowAnyMethod()
                                       .AllowAnyOrigin();
                                   });
+            });
+
+            builder.WebHost.ConfigureKestrel(options =>
+            {
+                options.ListenAnyIP(8080);
             });
 
             var app = builder.Build();

@@ -14,10 +14,19 @@ namespace SalesAndFinance.Infrastructure.Repositories
 
         public async Task<User> SignUpAsync(User input)
         {
+            try
+            {
+
             await _dbContext.Users.AddAsync(input);
             await _dbContext.SaveChangesAsync();
 
             return input;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
