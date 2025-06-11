@@ -20,7 +20,14 @@ namespace SalesAndFinance
             Console.WriteLine($"Connection String: {sqlConnection}");
 
             builder.Services.AddDbContext<SalesAndFinanceDbContext>(options =>
-                options.UseSqlServer(sqlConnection));
+                options.UseSqlServer(sqlConnection, sqlOptions =>
+                    sqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(10),
+                        errorNumbersToAdd: null
+                    )
+                )
+            );
             //builder.Services.AddDbContext<SalesAndFinanceDbContext>(sqlConnection , options => options.UseSqlConnection(sqlConnection));
             // Add services to the container.
 

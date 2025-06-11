@@ -2,6 +2,7 @@
 using SalesAndFinance.Application.Services.Users.Dto;
 using SalesAndFinance.Domain;
 using SalesAndFinance.Domain.Interfaces;
+using BCrypt.Net;
 
 
 namespace SalesAndFinance.Application.Services.Users
@@ -20,6 +21,7 @@ namespace SalesAndFinance.Application.Services.Users
             ResponseResult<string> response = new();
             try
             {
+                //var hashPassword = BCrypt.Net.BCrypt.HashPassword(input.password);
                 var request = new User
                 {
                     FirstName = input.firstName,

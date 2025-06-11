@@ -22,7 +22,14 @@ namespace SalesAndFinance.Application.Services.Auth
 
                 var request = await _authRepository.LoginAsync(email, password);
 
-                response.Result = request;
+                bool checkPassword = BCrypt.Net.BCrypt.Verify(password, request.PasswordHash);
+                if (checkPassword == false)
+                {
+                    response.Result = "Password is inCorrect";
+                    response.ResponseStatus = ResponseStatuses.Unauthorized;
+                }
+
+                response.Result = "Success";
                 response.ResponseStatus = ResponseStatuses.Success;
 
             }
