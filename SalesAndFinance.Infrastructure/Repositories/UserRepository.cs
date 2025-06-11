@@ -17,10 +17,10 @@ namespace SalesAndFinance.Infrastructure.Repositories
             try
             {
 
-            await _dbContext.Users.AddAsync(input);
-            await _dbContext.SaveChangesAsync();
+                await _dbContext.Users.AddAsync(input);
+                await _dbContext.SaveChangesAsync();
 
-            return input;
+                return input;
             }
             catch (Exception ex)
             {

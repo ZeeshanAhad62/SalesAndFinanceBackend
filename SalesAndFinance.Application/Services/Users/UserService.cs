@@ -3,6 +3,7 @@ using SalesAndFinance.Application.Services.Users.Dto;
 using SalesAndFinance.Domain;
 using SalesAndFinance.Domain.Interfaces;
 using BCrypt.Net;
+using SalesAndFinance.Infrastructure;
 
 
 namespace SalesAndFinance.Application.Services.Users
@@ -12,7 +13,7 @@ namespace SalesAndFinance.Application.Services.Users
         private readonly IUserRepository _userRepository;
         public UserService(IUserRepository userRepository)
         {
-            
+
             _userRepository = userRepository;
         }
 
@@ -21,13 +22,13 @@ namespace SalesAndFinance.Application.Services.Users
             ResponseResult<string> response = new();
             try
             {
-                //var hashPassword = BCrypt.Net.BCrypt.HashPassword(input.password);
+                var hashPassword = BCrypt.Net.BCrypt.HashPassword(input.password);
                 var request = new User
                 {
                     FirstName = input.firstName,
                     LastName = input.lastName,
                     Email = input.email,
-                    PasswordHash = input.password,
+                    PasswordHash = hashPassword,
                     ContactNumber = input.contactNumber,
                     CreatedBy = 0,
                 };

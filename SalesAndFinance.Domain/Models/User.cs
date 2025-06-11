@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SalesAndFinance.Domain;
+namespace SalesAndFinance.Infrastructure;
 
 public partial class User
 {

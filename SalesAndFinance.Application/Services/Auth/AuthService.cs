@@ -36,7 +36,7 @@ namespace SalesAndFinance.Application.Services.Auth
             catch (Exception ex)
             {
                 response.Error = ex.Message;
-                response.ResponseStatus = ResponseStatuses.InternalServerError ;
+                response.ResponseStatus = ResponseStatuses.InternalServerError;
             }
             return response;
         }

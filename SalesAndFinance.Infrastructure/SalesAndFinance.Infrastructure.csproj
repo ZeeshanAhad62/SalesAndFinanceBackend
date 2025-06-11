@@ -23,4 +23,8 @@
     <ProjectReference Include="..\SalesAndFinance.Domain\SalesAndFinance.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

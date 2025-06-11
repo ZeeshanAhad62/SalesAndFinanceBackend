@@ -16,7 +16,7 @@ namespace SalesAndFinance.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> LoginAsync (UserLoginRequestDto input)
+        public async Task<IActionResult> LoginAsync(UserLoginRequestDto input)
         {
             var response = await _authService.LoginAsync(input);
 
