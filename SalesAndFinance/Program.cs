@@ -1,4 +1,5 @@
 
+using ERP;
 using Microsoft.EntityFrameworkCore;
 using SalesAndFinance.Application;
 using SalesAndFinance.Infrastructure;
@@ -16,11 +17,7 @@ namespace SalesAndFinance
             builder.Logging.ClearProviders();
             builder.Logging.AddConsole();
 
-            var sqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
-            Console.WriteLine($"Connection String: {sqlConnection}");
-
-            builder.Services.AddDbContext<SalesAndFinanceDbContext>(options =>
-                options.UseSqlServer(sqlConnection));
+            StartUp.ConfigureServices(builder);
             //builder.Services.AddDbContext<SalesAndFinanceDbContext>(sqlConnection , options => options.UseSqlConnection(sqlConnection));
             // Add services to the container.
 
