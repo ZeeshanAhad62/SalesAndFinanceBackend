@@ -12,5 +12,7 @@
 
         public string password { get; set; } = null!;
 
+        public int roleId { get; set; }
+
     }
 }

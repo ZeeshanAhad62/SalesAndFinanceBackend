@@ -78,7 +78,11 @@ public partial class SalesAndFinanceDbContext : DbContext
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
+            entity.Property(e => e.IsActive).HasDefaultValue(1);
             entity.Property(e => e.ModifiedAt).HasColumnType("datetime");
+            entity.Property(e => e.Role)
+                .HasMaxLength(20)
+                .IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -24,6 +24,9 @@ namespace SalesAndFinance.Controllers
             if (response.ResponseStatus == ResponseStatuses.InternalServerError)
                 return StatusCode(StatusCodes.Status500InternalServerError, response.Error);
 
+            if (response.ResponseStatus == ResponseStatuses.Unauthorized)
+                return StatusCode(StatusCodes.Status401Unauthorized, response.Result);
+
             return Ok(response);
         }
     }

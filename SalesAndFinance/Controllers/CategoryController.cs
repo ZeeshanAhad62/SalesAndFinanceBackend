@@ -19,12 +19,19 @@ namespace SalesAndFinance.Controllers
         [HttpPost]
         public async Task<IActionResult> PostCategory(CategoryRequestDto request)
         {
-            var response = await _categoryService.PostCategory(request);
+            if (request.LogedInUserRole == (int)RolesEnum.SuperAdmin || request.LogedInUserRole == (int)RolesEnum.Admin)
+            {
+                var response = await _categoryService.PostCategory(request);
 
-            if (response.ResponseStatus == ResponseStatuses.InternalServerError)
-                return StatusCode(StatusCodes.Status500InternalServerError, response.Error);
+                if (response.ResponseStatus == ResponseStatuses.InternalServerError)
+                    return StatusCode(StatusCodes.Status500InternalServerError, response.Error);
 
-            return Ok(response);
+                return Ok(response);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status401Unauthorized,"Only Admins Can add Category");
+            }
         }
     }
 }

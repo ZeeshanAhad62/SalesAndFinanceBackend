@@ -13,11 +13,10 @@ namespace SalesAndFinance.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<User> LoginAsync(string email, string password)
+        public async Task<User?> LoginAsync(string email)
         {
-            var response = await _dbContext.Users.Where(x => x.Email == email && x.PasswordHash == password && x.IsDeleted == false).FirstOrDefaultAsync();
+            return await _dbContext.Users.Where(x => x.Email == email && x.IsDeleted == false && x.IsActive == 1).FirstOrDefaultAsync();
 
-            return response;
         }
     }
 }

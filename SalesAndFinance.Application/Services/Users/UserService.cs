@@ -13,7 +13,6 @@ namespace SalesAndFinance.Application.Services.Users
         private readonly IUserRepository _userRepository;
         public UserService(IUserRepository userRepository)
         {
-
             _userRepository = userRepository;
         }
 
@@ -30,7 +29,9 @@ namespace SalesAndFinance.Application.Services.Users
                     Email = input.email,
                     PasswordHash = hashPassword,
                     ContactNumber = input.contactNumber,
-                    CreatedBy = 0,
+                    ModifiedAt = DateTime.UtcNow,
+                    RoleId = input.roleId,
+                    Role = ((RolesEnum)input.roleId).ToString()
                 };
 
                 var result = await _userRepository.SignUpAsync(request);

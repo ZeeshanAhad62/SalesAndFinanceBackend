@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SalesAndFinance.Application.Services.Auth;
+using SalesAndFinance.Application.Services.Category;
 using SalesAndFinance.Application.Services.Users;
 
 namespace SalesAndFinance.Infrastructure
@@ -10,6 +11,7 @@ namespace SalesAndFinance.Infrastructure
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ICategoryService, CategoryService>();
         }
     }
 }

@@ -19,11 +19,13 @@ public partial class User
 
     public bool IsDeleted { get; set; }
 
-    public int? CreatedBy { get; set; }
-
     public DateTime CreatedAt { get; set; }
 
-    public int? ModifiedBy { get; set; }
-
     public DateTime? ModifiedAt { get; set; }
+
+    public int IsActive { get; set; }
+
+    public int RoleId { get; set; }
+
+    public string Role { get; set; } = null!;
 }

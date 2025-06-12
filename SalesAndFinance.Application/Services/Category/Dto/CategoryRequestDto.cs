@@ -4,5 +4,6 @@
     {
         public string CatName { get; set; }
         public int LogedInUserId { get; set; }
+        public int LogedInUserRole { get; set; }
     }
 }

@@ -20,13 +20,24 @@ namespace SalesAndFinance.Application.Services.Auth
                 string email = input.Email;
                 string password = input.Password;
 
-                var request = await _authRepository.LoginAsync(email, password);
-
-                bool checkPassword = BCrypt.Net.BCrypt.Verify(password, request.PasswordHash);
-                if (checkPassword == false)
+                var request = await _authRepository.LoginAsync(email);
+                if (request != null)
                 {
-                    response.Result = "Password is inCorrect";
+                    bool checkPassword = BCrypt.Net.BCrypt.Verify(password, request.PasswordHash);
+                    if (checkPassword == false)
+                    {
+                        response.Result = "Password is inCorrect";
+                        response.ResponseStatus = ResponseStatuses.Unauthorized;
+
+                        return response;
+                    }
+                }
+                else
+                {
+                    response.Result = "emial is not valid";
                     response.ResponseStatus = ResponseStatuses.Unauthorized;
+
+                    return response;
                 }
 
                 response.Result = "Success";
