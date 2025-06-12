@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SalesAndFinance.Application.Services.Auth;
 using SalesAndFinance.Application.Services.Auth.Dto;
+using SalesAndFinance.Application.Common;
 
 namespace SalesAndFinance.Controllers
 {
