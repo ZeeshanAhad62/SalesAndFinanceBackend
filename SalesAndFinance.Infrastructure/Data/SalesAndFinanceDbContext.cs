@@ -41,7 +41,6 @@ public partial class SalesAndFinanceDbContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.ModifiedAt).HasColumnType("datetime");
-            entity.Property(e => e.TotalItems).HasMaxLength(20);
         });
 
         modelBuilder.Entity<ProductsService>(entity =>

@@ -3,6 +3,6 @@
     public class CategoryRequestDto
     {
         public string CatName { get; set; }
-        public string MyProperty { get; set; }
+        public int LogedInUserId { get; set; }
     }
 }

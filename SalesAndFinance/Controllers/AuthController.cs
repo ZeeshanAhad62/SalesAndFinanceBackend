@@ -21,6 +21,9 @@ namespace SalesAndFinance.Controllers
         {
             var response = await _authService.LoginAsync(input);
 
+            if (response.ResponseStatus == ResponseStatuses.InternalServerError)
+                return StatusCode(StatusCodes.Status500InternalServerError, response.Error);
+
             return Ok(response);
         }
     }

@@ -9,10 +9,6 @@ public partial class CategoryProduct
 
     public string CategoryName { get; set; } = null!;
 
-    public string? TotalItems { get; set; }
-
-    public string Image { get; set; } = null!;
-
     public bool IsDeleted { get; set; }
 
     public DateTime CreatedAt { get; set; }
@@ -22,4 +18,6 @@ public partial class CategoryProduct
     public DateTime? ModifiedAt { get; set; }
 
     public int? ModifiedBy { get; set; }
+
+    public int? TotalProducts { get; set; }
 }

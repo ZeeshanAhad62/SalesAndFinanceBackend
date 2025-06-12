@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using SalesAndFinance.Application.Common;
+using SalesAndFinance.Application.Services.Category.Dto;
 
 namespace SalesAndFinance.Application.Services.Category
 {
     public interface ICategoryService
     {
+        Task<ResponseResult<string>> PostCategory(CategoryRequestDto request);
     }
 }
