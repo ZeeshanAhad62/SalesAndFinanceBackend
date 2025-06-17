@@ -44,6 +44,18 @@ namespace SalesAndFinance.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetCategory()
+        {
+
+            var response = await _categoryService.GetCategory();
+
+            if (response.ResponseStatus == ResponseStatuses.InternalServerError)
+                return StatusCode(StatusCodes.Status500InternalServerError, response.Error);
+
+            return Ok(response);
+        }
+
         [HttpPut]
         [Authorize]
         public async Task<IActionResult> UpdateCategory(string catName, int Id)
@@ -62,18 +74,6 @@ namespace SalesAndFinance.Controllers
             {
                 return StatusCode(StatusCodes.Status401Unauthorized, "Only Admins Can add Category");
             }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetCategory()
-        {
-
-            var response = await _categoryService.GetCategory();
-
-            if (response.ResponseStatus == ResponseStatuses.InternalServerError)
-                return StatusCode(StatusCodes.Status500InternalServerError, response.Error);
-
-            return Ok(response);
         }
 
         [HttpDelete]

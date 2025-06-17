@@ -12,6 +12,7 @@ namespace SalesAndFinance.Domain.Common
         {
             _httpContextAccessor = httpContextAccessor;
         }
+
         public int getLoggedInUserId()
         {
             var userId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
