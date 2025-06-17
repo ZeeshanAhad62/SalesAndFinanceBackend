@@ -1,6 +1,7 @@
 ﻿using SalesAndFinance.Application.Common;
 using SalesAndFinance.Application.Services.Auth.Dto;
 using SalesAndFinance.Domain.Interfaces;
+using SalesAndFinance.Infrastructure;
 
 namespace SalesAndFinance.Application.Services.Auth
 {
@@ -12,9 +13,9 @@ namespace SalesAndFinance.Application.Services.Auth
             _authRepository = authRepository;
         }
 
-        public async Task<ResponseResult<string>> LoginAsync(UserLoginRequestDto input)
+        public async Task<ResponseResult<User>> LoginAsync(UserLoginRequestDto input)
         {
-            ResponseResult<string> response = new();
+            ResponseResult<User> response = new();
             try
             {
                 string email = input.Email;
@@ -26,7 +27,7 @@ namespace SalesAndFinance.Application.Services.Auth
                     bool checkPassword = BCrypt.Net.BCrypt.Verify(password, request.PasswordHash);
                     if (checkPassword == false)
                     {
-                        response.Result = "Password is inCorrect";
+                        response.Error = "Password is inCorrect";
                         response.ResponseStatus = ResponseStatuses.Unauthorized;
 
                         return response;
@@ -34,13 +35,13 @@ namespace SalesAndFinance.Application.Services.Auth
                 }
                 else
                 {
-                    response.Result = "emial is not valid";
+                    response.Error = "emial is not valid";
                     response.ResponseStatus = ResponseStatuses.Unauthorized;
 
                     return response;
                 }
 
-                response.Result = "Success";
+                response.Result = request;
                 response.ResponseStatus = ResponseStatuses.Success;
 
             }

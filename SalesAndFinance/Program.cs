@@ -17,14 +17,16 @@ namespace SalesAndFinance
             StartUp.ConfigureServices(builder);
             //builder.Services.AddDbContext<SalesAndFinanceDbContext>(sqlConnection , options => options.UseSqlConnection(sqlConnection));
             // Add services to the container.
+            StartUp.AddAuthentication(builder);
 
             builder.Services.AddInfrastructureServices();
             builder.Services.AddApplicationServices();
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            StartUp.SwaggerGen(builder);
+            //builder.Services.AddSwaggerGen();
 
 
             builder.Services.AddCors(options =>
@@ -55,10 +57,11 @@ namespace SalesAndFinance
 
             app.UseHttpsRedirection();
             app.UseCors("AllowAllOrigins");
+            app.UseAuthentication();
             app.UseAuthorization();
 
-
             app.MapControllers();
+            app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
             app.Run();
         }

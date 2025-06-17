@@ -46,5 +46,59 @@ namespace SalesAndFinance.Application.Services.Category
             }
             return response;
         }
+
+        public async Task<ResponseResult<string>> UpdateCategory(string catName, int id)
+        {
+            ResponseResult<string> response = new();
+            try
+            {
+                var result = await _categoryRepository.UpdateCategory(catName, id);
+                
+                response.Result = result;
+                response.ResponseStatus = ResponseStatuses.Success;
+            }
+            catch (Exception ex)
+            {
+                response.Error = ex.Message;
+                response.ResponseStatus = ResponseStatuses.InternalServerError;
+            }
+            return response;
+        }
+
+        public async Task<ResponseResult<string>> DeleteCategory(int catId)
+        {
+            ResponseResult<string> response = new();
+            try
+            {
+                var result = await _categoryRepository.DeleteCategory(catId);
+
+                response.Result = result;
+                response.ResponseStatus = ResponseStatuses.Success;
+            }
+            catch (Exception ex)
+            {
+                response.Error = ex.Message;
+                response.ResponseStatus = ResponseStatuses.InternalServerError;
+            }
+            return response;
+        }
+
+        public async Task<ResponseResult<List<CategoryProduct>>> GetCategory()
+        {
+            ResponseResult<List<CategoryProduct>> response = new();
+            try
+            {
+                var result = await _categoryRepository.GetCategories();
+
+                response.Result = result;
+                response.ResponseStatus = ResponseStatuses.Success;
+            }
+            catch (Exception ex)
+            {
+                response.Error = ex.Message;
+                response.ResponseStatus = ResponseStatuses.InternalServerError;
+            }
+            return response;
+        }
     }
 }
