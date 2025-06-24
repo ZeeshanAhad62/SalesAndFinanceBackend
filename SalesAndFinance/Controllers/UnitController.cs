@@ -1,0 +1,43 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SalesAndFinance.Application.Common;
+using SalesAndFinance.Application.Services.Units;
+using SalesAndFinance.Application.Services.Units.Dto;
+using SalesAndFinance.Application.Services.Users;
+using SalesAndFinance.Domain.Common;
+
+namespace SalesAndFinance.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UnitController : ControllerBase
+    {
+        private readonly IUnitService _unitService;
+        private readonly CommonFunctions _commonFunctions;
+        public UnitController(IUnitService unitService, CommonFunctions commonFunctions)
+        {
+            _unitService = unitService;
+            _commonFunctions = commonFunctions;
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> PostUnits(UnitRequestDto request)
+        {
+            int loggedInUserId = _commonFunctions.getLoggedInUserId();
+            if (loggedInUserId == (int)RolesEnum.SuperAdmin || loggedInUserId == (int)RolesEnum.Admin)
+            {
+                var response = await _unitService.PostUnit(request, loggedInUserId);
+
+                if (response.ResponseStatus == ResponseStatuses.InternalServerError)
+                    return StatusCode(StatusCodes.Status500InternalServerError, response.Error);
+
+                return Ok(response);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status401Unauthorized, "Only Admins Can add Units");
+            }
+        }
+    }
+}

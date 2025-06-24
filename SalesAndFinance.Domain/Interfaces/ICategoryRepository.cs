@@ -8,6 +8,6 @@ namespace SalesAndFinance.Domain.Interfaces
         Task<string> PostCategory(CategoryProduct cat);
         Task<List<CategoryProduct>> GetCategories();
         Task<string> UpdateCategory(string catName, int id);
-        Task<string> DeleteCategory(int catId);
+        Task<CategoryProduct> DeleteCategory(int catId);
     }
 }

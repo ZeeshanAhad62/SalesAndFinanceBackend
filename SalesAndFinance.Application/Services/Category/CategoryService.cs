@@ -71,7 +71,7 @@ namespace SalesAndFinance.Application.Services.Category
             try
             {
                 var result = await _categoryRepository.UpdateCategory(catName, id);
-                
+
                 response.Result = result;
                 response.ResponseStatus = ResponseStatuses.Success;
             }
@@ -83,15 +83,24 @@ namespace SalesAndFinance.Application.Services.Category
             return response;
         }
 
-        public async Task<ResponseResult<string>> DeleteCategory(int catId)
+        public async Task<ResponseResult<CategoryProduct>> DeleteCategory(int catId)
         {
-            ResponseResult<string> response = new();
+            ResponseResult<CategoryProduct> response = new();
             try
             {
                 var result = await _categoryRepository.DeleteCategory(catId);
 
+                if (result.IsDeleted == false)
+                {
+                    response.Error = "You cannot Delete Category because it has Products in it First Delete Products";
+                    response.ResponseStatus = ResponseStatuses.BadRequest;
+                }
+                else
+                {
+                    response.ResponseStatus = ResponseStatuses.Success;
+                }
                 response.Result = result;
-                response.ResponseStatus = ResponseStatuses.Success;
+
             }
             catch (Exception ex)
             {

@@ -43,16 +43,18 @@ namespace SalesAndFinance.Infrastructure.Repositories
             return "Success";
         }
 
-        public async Task<string> DeleteCategory(int catId)
+        public async Task<CategoryProduct> DeleteCategory(int catId)
         {
-            CategoryProduct cp = _dbContext.CategoryProducts.Where(x => x.Id ==catId).FirstOrDefault();
-            cp.IsDeleted = true;
-            cp.ModifiedAt = DateTime.UtcNow;
+            CategoryProduct cp = await _dbContext.CategoryProducts.Where(x => x.Id == catId).FirstOrDefaultAsync();
+            if (cp.TotalProducts == null || cp.TotalProducts == 0)
+            {
+                cp.IsDeleted = true;
+                cp.ModifiedAt = DateTime.UtcNow;
 
-            _dbContext.CategoryProducts.Update(cp);
-            await _dbContext.SaveChangesAsync();
-
-            return "Success";
+                _dbContext.CategoryProducts.Update(cp);
+                await _dbContext.SaveChangesAsync();
+            }
+            return cp;
         }
 
     }

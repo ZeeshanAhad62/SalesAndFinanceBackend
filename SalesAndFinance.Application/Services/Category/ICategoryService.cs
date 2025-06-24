@@ -10,6 +10,6 @@ namespace SalesAndFinance.Application.Services.Category
         Task<ResponseResult<string>> PostCategory(CategoryRequestDto request);
         Task<ResponseResult<List<CategoryProduct>>> GetCategory();
         Task<ResponseResult<string>> UpdateCategory(string catName, int id);
-        Task<ResponseResult<string>> DeleteCategory(int catId);
+        Task<ResponseResult<CategoryProduct>> DeleteCategory(int catId);
     }
 }

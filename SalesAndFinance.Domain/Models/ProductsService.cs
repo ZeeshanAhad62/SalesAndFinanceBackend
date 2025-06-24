@@ -7,8 +7,6 @@ public partial class ProductsService
 {
     public int Id { get; set; }
 
-    public int ItemType { get; set; }
-
     public string ProductName { get; set; } = null!;
 
     public int CategoryId { get; set; }

@@ -26,13 +26,13 @@ public partial class SalesAndFinanceDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=SalesAndFinance;user id=zeeshan;password=123qwe;Trusted_Connection=True;Encrypt=false;");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-OT7FBM9;Database=SalesAndFinance;Trusted_Connection=True;MultipleActiveResultSets=true;Trusted_Connection=True;Encrypt=false;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CategoryProduct>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC070EEB79B9");
+            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC076AB0A01E");
 
             entity.ToTable("CategoryProduct");
 
@@ -45,7 +45,7 @@ public partial class SalesAndFinanceDbContext : DbContext
 
         modelBuilder.Entity<ProductsService>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC07ED8DFD99");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC0724B26EDB");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -59,7 +59,7 @@ public partial class SalesAndFinanceDbContext : DbContext
 
         modelBuilder.Entity<Unit>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Units__3214EC075FA80DE6");
+            entity.HasKey(e => e.Id).HasName("PK__Units__3214EC078E7486B6");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
@@ -71,7 +71,7 @@ public partial class SalesAndFinanceDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC070BA52B86");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07335B8B36");
 
             entity.ToTable("User");
 
