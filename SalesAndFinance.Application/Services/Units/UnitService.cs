@@ -45,5 +45,41 @@ namespace SalesAndFinance.Application.Services.Units
 
             return response;
         }
+
+        public async Task<ResponseResult<List<Unit>>> GetAllUnits()
+        {
+            ResponseResult<List<Unit>> response = new();
+            try
+            {
+                var result = await _unitRepository.GetAllUnits();
+
+                response.Result = result;
+                response.ResponseStatus = ResponseStatuses.Success;
+            }
+            catch (Exception ex)
+            {
+                response.Error = ex.Message;
+                response.ResponseStatus = ResponseStatuses.InternalServerError;
+            }
+            return response;
+        }
+
+        public async Task<ResponseResult<string>> DeleteUnit(int id, int uId)
+        {
+            ResponseResult<string> response = new();
+            try
+            {
+                var result = await _unitRepository.DeleteUnit(id, uId);
+
+                response.Result = result;
+                response.ResponseStatus = ResponseStatuses.Success;
+            }
+            catch (Exception ex)
+            {
+                response.Error = ex.Message;
+                response.ResponseStatus= ResponseStatuses.InternalServerError;
+            }
+            return response;
+        }
     }
 }
