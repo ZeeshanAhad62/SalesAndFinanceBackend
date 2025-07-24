@@ -35,7 +35,8 @@ namespace SalesAndFinance.Controllers
                 return StatusCode(StatusCodes.Status401Unauthorized, response.Result);
 
             string token = GenerateJwtToken(Convert.ToString(response.Result.Id));
-            return Ok(new { token });
+            string uName = response.Result.FirstName + " " + response.Result.LastName;
+            return Ok(new { token, uName });
         }
 
         private string GenerateJwtToken(string userId)
