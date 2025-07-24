@@ -23,6 +23,7 @@ namespace SalesAndFinance.Controllers
         }
 
         [HttpPost]
+        [Route("Login")]
         public async Task<IActionResult> LoginAsync(UserLoginRequestDto input)
         {
             var response = await _authService.LoginAsync(input);
@@ -34,7 +35,7 @@ namespace SalesAndFinance.Controllers
                 return StatusCode(StatusCodes.Status401Unauthorized, response.Result);
 
             string token = GenerateJwtToken(Convert.ToString(response.Result.Id));
-            return Ok( token);
+            return Ok(new { token });
         }
 
         private string GenerateJwtToken(string userId)

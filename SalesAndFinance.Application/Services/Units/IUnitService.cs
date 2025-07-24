@@ -8,7 +8,7 @@ namespace SalesAndFinance.Application.Services.Units
     public interface IUnitService
     {
         Task<ResponseResult<Unit>> PostUnit(UnitRequestDto requestDto, int loggedInUserID);
-        Task<List<Unit>> GetAllUnits();
+        Task<ResponseResult<List<Unit>>> GetAllUnits();
         Task<ResponseResult<string>> DeleteUnit(int id, int uId);
     }
 }

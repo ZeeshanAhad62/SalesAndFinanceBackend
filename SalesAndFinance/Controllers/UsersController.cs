@@ -18,6 +18,7 @@ namespace SalesAndFinance.Controllers
         }
 
         [HttpPost]
+        [Route("SignUp")]
         public async Task<IActionResult> SignUpAsync(UserRequestDto input)
         {
             var result = await _userService.SignUpAsync(input);
@@ -25,7 +26,7 @@ namespace SalesAndFinance.Controllers
             if (result.ResponseStatus == ResponseStatuses.InternalServerError)
                 return StatusCode(StatusCodes.Status500InternalServerError, result.Error);
 
-            return Ok(result);
+            return Ok(new { result });
         }
     }
 }
