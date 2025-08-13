@@ -37,7 +37,25 @@ namespace SalesAndFinance
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = config["Jwt:Issuer"],
                     ValidAudience = config["Jwt:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"])),
+                    ClockSkew = TimeSpan.Zero
+                };
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var token = context.HttpContext.Request.Cookies["authToken"];
+                        if (string.IsNullOrEmpty(token))
+                        {
+                            Console.WriteLine("❌ No authToken cookie found");
+                        }
+                        else
+                        {
+                            Console.WriteLine("✅ Token received from cookie");
+                        }
+                        context.Token = token;
+                        return Task.CompletedTask;
+                    }
                 };
             });
 

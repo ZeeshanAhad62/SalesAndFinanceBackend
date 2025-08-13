@@ -71,5 +71,14 @@ namespace SalesAndFinance.Controllers
                 return StatusCode(StatusCodes.Status401Unauthorized, "Only Admins Can Delete Units");
             }
         }
+
+        [HttpGet]
+        [Authorize]
+        [Route("HelloWorld")]
+        public IActionResult HelloWorld()
+        {
+            string a = "ok";
+            return Ok(new { a});
+        }
     }
 }

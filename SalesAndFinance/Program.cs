@@ -31,14 +31,13 @@ namespace SalesAndFinance
 
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy(name: "AllowAllOrigins",
-                                  policy =>
-                                  {
-                                      policy
-                                      .AllowAnyHeader()
-                                      .AllowAnyMethod()
-                                      .AllowAnyOrigin();
-                                  });
+                options.AddPolicy("AllowAngularApp", builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                           .AllowCredentials()
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
             });
 
             //builder.WebHost.ConfigureKestrel(options =>
@@ -56,7 +55,7 @@ namespace SalesAndFinance
             }
 
             app.UseHttpsRedirection();
-            app.UseCors("AllowAllOrigins");
+            app.UseCors("AllowAngularApp");
             app.UseAuthentication();
             app.UseAuthorization();
 

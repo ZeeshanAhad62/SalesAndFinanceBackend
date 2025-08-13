@@ -15,7 +15,7 @@ namespace SalesAndFinance.Controllers
     {
         private readonly IAuthService _authService;
         private IConfiguration _config;
-     
+
         public AuthController(IAuthService authService, IConfiguration config)
         {
             _authService = authService;
@@ -35,8 +35,31 @@ namespace SalesAndFinance.Controllers
                 return StatusCode(StatusCodes.Status401Unauthorized, response.Result);
 
             string token = GenerateJwtToken(Convert.ToString(response.Result.Id));
+
+            //Insert token in HTTPOnly Cookie
+            HttpContext.Response.Cookies.Append("authToken", token, new CookieOptions
+            {
+                HttpOnly = true,            // Keep it true for security
+                Secure = true,              // Required for SameSite=None
+                SameSite = SameSiteMode.None,
+            });
+
             string uName = response.Result.FirstName + " " + response.Result.LastName;
-            return Ok(new { token, uName });
+            return Ok(new { message = "Login successful", uName });
+        }
+
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Response.Cookies.Append("authToken", "", new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddDays(-1)
+            });
+
+            return Ok(new { message = "Logged out successfully" });
         }
 
         private string GenerateJwtToken(string userId)
